@@ -1,0 +1,30 @@
+{
+  "education": [
+    {
+      "id": 1,
+      "degree": "Master of Science in Robotics",
+      "institution": "Northeastern University",
+      "location": "Boston, MA",
+      "startDate": "Sep 2023",
+      "endDate": "May 2025",
+      "gpa": "4/4",
+      "details": [
+        "Concentration: Electrical and Computer Engineering"
+      ]
+    },
+    {
+      "id": 2,
+      "degree": "Bachelor of Technology in Electrical Electronics Engineering",
+      "institution": "VNR VJ Institute of Engineering and Technology",
+      "location": "Hyderabad, India",
+      "startDate": "Aug 2019",
+      "endDate": "May 2023",
+      "gpa": "9/10",
+      "details": [
+        "Minor: Artificial Intelligence and Machine Learning"
+      ]
+    }
+  ]
+}
+
+

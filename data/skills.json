@@ -1,0 +1,93 @@
+{
+  "skills": {
+    "languages-and-tools": [
+      {
+        "name": "Python",
+        "filename": "python.svg",
+        "folder": "languages-and-tools"
+      },
+      {
+        "name": "C++",
+        "filename": "C++.svg",
+        "folder": "languages-and-tools"
+      },
+      {
+        "name": "SQL",
+        "filename": "sql.svg",
+        "folder": "languages-and-tools"
+      },
+      {
+        "name": "TypeScript",
+        "filename": "TypeScript.svg",
+        "folder": "languages-and-tools"
+      },
+      {
+        "name": "PyTorch",
+        "filename": "pytorch.svg",
+        "folder": "languages-and-tools"
+      },
+      {
+        "name": "TensorFlow",
+        "filename": "tensorflow.svg",
+        "folder": "languages-and-tools"
+      }
+    ],
+    "fullstack-and-cloud": [
+      {
+        "name": "FastAPI",
+        "filename": "FastAPI.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "Next.js",
+        "filename": "nextjs-icon.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "MongoDB",
+        "filename": "MongoDB.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "PostgreSQL",
+        "filename": "PostgresSQL.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "Google Cloud",
+        "filename": "google_cloud-icon.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "AWS",
+        "filename": "amazon-web-services-7.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "Docker",
+        "filename": "docker.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "Git",
+        "filename": "git.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "GitHub Actions",
+        "filename": "GitHub Actions.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "Kubernetes",
+        "filename": "kubernetes-svgrepo-com.svg",
+        "folder": "fullstack-and-cloud"
+      },
+      {
+        "name": "Linux",
+        "filename": "linux.svg",
+        "folder": "fullstack-and-cloud"
+      }
+    ]
+  }
+}
