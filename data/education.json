@@ -6,22 +6,31 @@
       "institution": "Northeastern University",
       "location": "Boston, MA",
       "startDate": "Sep 2023",
-      "endDate": "May 2025",
+      "endDate": "Dec 2025",
       "gpa": "4/4",
+      "logo": "northeastern.svg",
       "details": [
-        "Concentration: Electrical and Computer Engineering"
+        "Pattern Recognition and Machine Learning",
+        "Machine Learning",
+        "AI for Human Computer Interaction",
+        "Deep Learning"
+
       ]
     },
     {
       "id": 2,
-      "degree": "Bachelor of Technology in Electrical Electronics Engineering",
-      "institution": "VNR VJ Institute of Engineering and Technology",
+      "degree": "Bachelors in Electrical and Electronics Engineering",
+      "institution": "VNR VJIET",
       "location": "Hyderabad, India",
       "startDate": "Aug 2019",
       "endDate": "May 2023",
       "gpa": "9/10",
+      "logo": "VNRVJIET_logo.png",
       "details": [
-        "Minor: Artificial Intelligence and Machine Learning"
+        "Minor: Artificial Intelligence and Machine Learning",
+        "Data Structures and Algorithms",
+        "Artificial Neural Networks",
+        "Fuzzy Logic"
       ]
     }
   ]

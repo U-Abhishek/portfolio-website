@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin } from 'lucide-react'
 import { YouTubeVideo } from '@/components/ui/youtube-video'
+import TimelineDemo from '@/components/ui/timeline-demo'
 
 interface Experience {
   id: number
@@ -74,7 +75,7 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
             </div>
           </div>
 
-          {/* Experience Section (Right) */}
+          {/* Experience Timeline Section (Right) */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold mb-6">Professional Experience</h3>
             <div className="space-y-4 relative">
@@ -94,8 +95,8 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                         className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer"
                       >
                         <CardItem translateZ="50" className="text-lg font-bold mb-1 text-left">
-                          <span>{exp.role}</span>{' '}
-                          <span className="font-medium text-muted-foreground">@ {exp.company}</span>
+                          <span>@ {exp.company}</span>{' '}
+                          <span className="font-medium text-muted-foreground">{exp.role}</span>
                         </CardItem>
 
                         <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-sm text-left">
@@ -177,8 +178,8 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                       className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer"
                     >
                       <CardItem translateZ="50" className="text-lg font-bold mb-1 text-left">
-                        <span>{exp.role}</span>{' '}
-                        <span className="font-medium text-muted-foreground">@ {exp.company}</span>
+                        <span>@ {exp.company}</span>{' '}
+                        <span className="font-medium text-muted-foreground">{exp.role}</span>
                       </CardItem>
 
                       <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-sm text-left">

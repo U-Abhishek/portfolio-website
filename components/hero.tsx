@@ -125,7 +125,7 @@ export function Hero() {
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
           <button 
             onClick={() => {
-              const nextSection = document.querySelector('#featured-projects') as HTMLElement | null
+              const nextSection = document.querySelector('#about') as HTMLElement | null
               nextSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
             }}
             className="animate-bounce cursor-pointer hover:scale-110 transition-transform duration-200"

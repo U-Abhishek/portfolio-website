@@ -1,5 +1,4 @@
 import skillsData from '@/data/skills.json'
-import { Marquee, MarqueeContent, MarqueeItem, MarqueeFade } from '@/components/ui/shadcn-io/marquee'
 
 interface SkillsProps {
   skills: string[]
@@ -21,18 +20,37 @@ interface SkillsData {
 export function Skills({ skills: _skills }: SkillsProps) {
   const { skills } = skillsData as SkillsData
 
-  const SkillLogo = ({ skill, size = "w-16 h-16" }: { skill: SkillItem; size?: string }) => (
-    <div className="group relative">
-      <img 
-        src={`/images/skills/${skill.folder}/${skill.filename}`} 
-        alt={skill.name} 
-        className={`${size} object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110`}
-        title={skill.name}
-      />
-      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <span className="text-xs text-gray-400 font-medium whitespace-nowrap bg-black/80 px-2 py-1 rounded">
+  const SkillCard = ({ skill }: { skill: SkillItem }) => (
+    <div className="group relative p-4 rounded-xl bg-gray-900/30 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 hover:bg-gray-800/30 hover:scale-105 hover:shadow-lg hover:shadow-gray-900/20">
+      <div className="flex flex-col items-center text-center space-y-3">
+        <div className="relative">
+          <img 
+            src={`/images/skills/${skill.folder}/${skill.filename}`} 
+            alt={skill.name} 
+            className="w-12 h-12 sm:w-14 sm:h-14 object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110"
+            title={skill.name}
+          />
+        </div>
+        <h3 className="text-sm sm:text-base font-medium text-white group-hover:text-gray-200 transition-colors">
           {skill.name}
-        </span>
+        </h3>
+      </div>
+      
+      {/* Subtle glow effect on hover */}
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+    </div>
+  )
+
+  const CategorySection = ({ title, skills, description }: { title: string; skills: SkillItem[]; description: string }) => (
+    <div className="space-y-6">
+      <div className="text-center">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{title}</h3>
+        <p className="text-gray-400 text-sm sm:text-base">{description}</p>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        {skills.map((skill, index) => (
+          <SkillCard key={`${skill.name}-${index}`} skill={skill} />
+        ))}
       </div>
     </div>
   )
@@ -49,43 +67,18 @@ export function Skills({ skills: _skills }: SkillsProps) {
           </p>
         </div>
 
-        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-          <Marquee className="[--duration:35s]">
-            <MarqueeContent pauseOnHover>
-              {skills['languages-and-tools'].map((skill, index) => (
-                <MarqueeItem key={`${skill.name}-${index}`}>
-                  <div className="flex items-center gap-3 mx-4 px-4 py-2 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors">
-                    <img 
-                      src={`/images/skills/${skill.folder}/${skill.filename}`} 
-                      alt={skill.name} 
-                      className="w-6 h-6 object-contain"
-                    />
-                    <p className="text-white font-medium text-sm whitespace-nowrap">{skill.name}</p>
-                  </div>
-                </MarqueeItem>
-              ))}
-            </MarqueeContent>
-          </Marquee>
+        <div className="space-y-12">
+          <CategorySection 
+            title="Languages & Tools" 
+            skills={skills['languages-and-tools']}
+            description="Programming languages and ML frameworks I work with"
+          />
           
-          <Marquee className="[--duration:35s]">
-            <MarqueeContent direction="right" pauseOnHover>
-              {skills['fullstack-and-cloud'].map((skill, index) => (
-                <MarqueeItem key={`${skill.name}-${index}`}>
-                  <div className="flex items-center gap-3 mx-4 px-4 py-2 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors">
-                    <img 
-                      src={`/images/skills/${skill.folder}/${skill.filename}`} 
-                      alt={skill.name} 
-                      className="w-6 h-6 object-contain"
-                    />
-                    <p className="text-white font-medium text-sm whitespace-nowrap">{skill.name}</p>
-                  </div>
-                </MarqueeItem>
-              ))}
-            </MarqueeContent>
-          </Marquee>
-
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black"></div>
+          <CategorySection 
+            title="Fullstack & Cloud" 
+            skills={skills['fullstack-and-cloud']}
+            description="Web development, databases, and cloud infrastructure"
+          />
         </div>
       </div>
     </section>
