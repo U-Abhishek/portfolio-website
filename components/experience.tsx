@@ -1,10 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin } from 'lucide-react'
+import { YouTubeVideo } from '@/components/ui/youtube-video'
 
 interface Experience {
   id: number
@@ -13,7 +13,7 @@ interface Experience {
   startDate: string
   endDate: string
   description: string
-  image?: string
+  youtubeVideo?: string
 }
 
 interface Education {
@@ -103,22 +103,20 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                           {exp.startDate} - {exp.endDate}
                         </CardItem>
 
-                        {exp.image && (
-                          <div className="overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-48 group-hover/card:opacity-100">
-                            <div className="mt-4 relative w-full h-48 rounded-lg overflow-hidden">
-                              <Image
-                                src={exp.image}
-                                alt={exp.role}
-                                width={800}
-                                height={384}
-                                className="h-48 w-full object-cover"
-                                priority={false}
-                              />
-                            </div>
+                        {exp.youtubeVideo && (
+                          <div className="mt-4 max-w-sm mx-auto">
+                            <YouTubeVideo
+                              videoId={exp.youtubeVideo}
+                              title={`${exp.role} at ${exp.company}`}
+                              className="w-full"
+                              autoplay={true}
+                              muted={true}
+                              loop={true}
+                            />
                           </div>
                         )}
 
-                        <CardItem translateZ="40" as="p" className="text-sm leading-relaxed mt-4 text-left">
+                        <CardItem translateZ="40" as="p" className="text-sm leading-relaxed mt-4 text-left overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-96 group-hover/card:opacity-100">
                           {exp.description}
                         </CardItem>
                       </CardBody>
@@ -188,22 +186,20 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                         {exp.startDate} - {exp.endDate}
                       </CardItem>
 
-                      {exp.image && (
-                        <div className="overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-48 group-hover/card:opacity-100">
-                          <div className="mt-4 relative w-full h-48 rounded-lg overflow-hidden">
-                            <Image
-                              src={exp.image}
-                              alt={exp.role}
-                              width={800}
-                              height={384}
-                              className="h-48 w-full object-cover"
-                              priority={false}
-                            />
-                          </div>
+                      {exp.youtubeVideo && (
+                        <div className="mt-4 max-w-sm mx-auto">
+                          <YouTubeVideo
+                            videoId={exp.youtubeVideo}
+                            title={`${exp.role} at ${exp.company}`}
+                            className="w-full"
+                            autoplay={true}
+                            muted={true}
+                            loop={true}
+                          />
                         </div>
                       )}
 
-                      <CardItem translateZ="40" as="p" className="text-sm leading-relaxed mt-4 text-left">
+                      <CardItem translateZ="40" as="p" className="text-sm leading-relaxed mt-4 text-left overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-96 group-hover/card:opacity-100">
                         {exp.description}
                       </CardItem>
                     </CardBody>

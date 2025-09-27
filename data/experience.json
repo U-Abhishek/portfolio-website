@@ -7,7 +7,7 @@
       "startDate": "Jul 2024",
       "endDate": "Dec 2024",
       "description": "Built CV models for ASD emotion detection from body/facial cues; tracked 17 landmarks to classify emotions (e.g., happiness, frustration); created the ROSCO labeled dataset to advance non-verbal analysis.",
-      "image": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1200&q=80"
+      "youtubeVideo": "egZw1fIRfw8"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "startDate": "Mar 2022",
       "endDate": "Jun 2022",
       "description": "Built mosquito body-part segmentation pipeline (IoU 0.93); led modeling to boost species classification +8.3% via graph-cut; automated labeling and benchmarked TF/PyTorch models.",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+      "youtubeVideo": "egZw1fIRfw8"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "startDate": "Jan 2022",
       "endDate": "Apr 2022",
       "description": "Developed infra-thermal perception pipeline; fused acoustic sensors with Deep SORT + Kalman to reach 93.4% UAV tracking; optimized multi-sensor processing on Jetson Nano.",
-      "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80"
+      "youtubeVideo": "tbLOPNx2pok"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "startDate": "Aug 2021",
       "endDate": "Oct 2021",
       "description": "Built AI/IoT health dashboard; applied sequential models to predict behavior (AP 0.89); engineered real-time REST pipeline to normalize sensor data.",
-      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
+      "youtubeVideo": "2f1DnZbyV-M"
     }
   ]
 }

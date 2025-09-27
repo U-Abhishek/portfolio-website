@@ -36,13 +36,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </CardItem>
 
         {/* Image - always visible */}
-        <div className="relative w-full h-48 rounded-lg overflow-hidden">
+        <div className="relative w-full h-48 rounded-lg overflow-hidden project-image-container">
           <Image
             src={project.image}
             alt={project.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover project-image"
           />
         </div>
       </CardBody>

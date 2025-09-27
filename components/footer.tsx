@@ -51,7 +51,7 @@ export function Footer() {
         
         <div className="mt-0 pt-0 text-center">
           <p className="text-gray-400">
-            Made with <FaHeart className="w-4 h-4 text-red-500 inline" /> by Abhishek • © 2024 All rights reserved.
+            Made by Abhishek • © 2024 All rights reserved.
           </p>
         </div>
         

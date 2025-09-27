@@ -112,5 +112,27 @@
 
 /* Custom shadow for navbar */
 .shadow-3xl {
-  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Project image filters */
+.project-image {
+  filter: brightness(0.8) contrast(1.1);
+}
+
+/* Vignette overlay for project images */
+.project-image-container {
+  position: relative;
+}
+
+.project-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  border-radius: inherit;
 }
