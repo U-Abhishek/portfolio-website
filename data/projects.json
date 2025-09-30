@@ -13,7 +13,8 @@
       "image": "/images/projects/stylevec_api.png",
       "youtube": "",
       "tags": ["AI Systems"],
-      "summary": "A fashion search API that generates context-rich vector embeddings and segmentations for precise clothing recommendation and discovery."
+      "summary": "A fashion search API that generates context-rich vector embeddings and segmentations for precise clothing recommendation and discovery.",
+      "featured": true
     },
 
     {
@@ -27,7 +28,8 @@
       "image": "/images/projects/savorsync.png",
       "youtube": "",
       "tags": ["AI Systems"],
-      "summary": "A culturally immersive cooking platform blending authentic recipes with rich storytelling and AI-powered ingredient swaps."
+      "summary": "A culturally immersive cooking platform blending authentic recipes with rich storytelling and AI-powered ingredient swaps.",
+      "featured": true
     },
     
     {
@@ -41,7 +43,8 @@
       "image": "/images/projects/Content-Based Image Retrieval.png",
       "youtube": "",
       "tags": ["Computer Vision"],
-      "summary": "Feature-based image matching using color, texture, regions, and deep features; compares images with metrics like histogram intersection."
+      "summary": "Feature-based image matching using color, texture, regions, and deep features; compares images with metrics like histogram intersection.",
+      "featured": true
     },
     {
       "name": "Real-time 2D Object Recognition",
@@ -54,7 +57,8 @@
       "image": "/images/projects/realtime object detection.png",
       "youtube": "",
       "tags": ["Computer Vision"],
-      "summary": "Region-based object recognition in video using moments, percent fill, and KNN/L2 metrics with a small training database."
+      "summary": "Region-based object recognition in video using moments, percent fill, and KNN/L2 metrics with a small training database.",
+      "featured": false
     },
     {
       "name": "Calorie-Counter",
@@ -67,7 +71,8 @@
       "image": "/images/projects/calorie counter.png",
       "youtube": "",
       "tags": ["Computer Vision"],
-      "summary": "Simple interface to track daily foods and calories with a user-supplied scale."
+      "summary": "Simple interface to track daily foods and calories with a user-supplied scale.",
+      "featured": false
     },
     {
       "name": "Road Surface Segmentation",
@@ -80,7 +85,8 @@
       "image": "/images/projects/road surface segmentation.png",
       "youtube": "",
       "tags": ["Computer Vision"],
-      "summary": "Training strategy to improve cross-dataset generalization for road surface segmentation using deep learning."
+      "summary": "Training strategy to improve cross-dataset generalization for road surface segmentation using deep learning.",
+      "featured": false
     },
     {
       "name": "Customized Region Proposal based Traffic Sign Detection",
@@ -93,7 +99,8 @@
       "image": "/images/projects/Customized Region Proposal based Traffic Sign Detection.png",
       "youtube": "",
       "tags": ["Computer Vision"],
-      "summary": "Lightweight traffic sign detection using a custom region proposal method that reduces proposals vs. selective search."
+      "summary": "Lightweight traffic sign detection using a custom region proposal method that reduces proposals vs. selective search.",
+      "featured": false
     },
     {
       "name": "Leo Explore",
@@ -106,7 +113,8 @@
       "image": "/images/projects/reconnaissance bot.png",
       "youtube": "https://www.youtube.com/watch?v=fyIsYrZ6wks&list=TLGG8CfmGmJbyOgyNDA5MjAyNQ&t=50s",
       "tags": ["Robotics"],
-      "summary": "Autonomous frontier-exploration stack (SLAM, K-means frontiering, adapted A*, MPPI) validated on TurtleBot3."
+      "summary": "Autonomous frontier-exploration stack (SLAM, K-means frontiering, adapted A*, MPPI) validated on TurtleBot3.",
+      "featured": true
     },
     {
       "name": "Mapping Boston Streets using an Autonomous Car",
@@ -119,7 +127,8 @@
       "image": "/images/projects/mapping streets of boston.png",
       "youtube": "",
       "tags": ["Robotics"],
-      "summary": "Urban LiDAR mapping with LEGO-LOAM on NUANCE vehicle; optimized pipeline for our dataset."
+      "summary": "Urban LiDAR mapping with LEGO-LOAM on NUANCE vehicle; optimized pipeline for our dataset.",
+      "featured": false
     },
     {
       "name": "Optimizing Autonomous Vehicle Positioning Using IMU and GPS",
@@ -132,7 +141,8 @@
       "image": "/images/projects/sensorfusion.png",
       "youtube": "",
       "tags": ["Robotics"],
-      "summary": "Sensor fusion analysis of IMU and GPS to estimate pose and velocity on campus runs."
+      "summary": "Sensor fusion analysis of IMU and GPS to estimate pose and velocity on campus runs.",
+      "featured": false
     },
     {
       "name": "Intelligent MPPT Implementation ",
@@ -145,7 +155,8 @@
       "image": "/images/projects/mppt.png",
       "youtube": "",
       "tags": ["Machine Learning"],
-      "summary": "Comparison of P&O and ANN-based MPPT on a boost converter for improved tracking and stability."
+      "summary": "Comparison of P&O and ANN-based MPPT on a boost converter for improved tracking and stability.",
+      "featured": false
     }
   ]
 }

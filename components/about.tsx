@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
-import { Calendar, MapPin, GraduationCap, Briefcase, Code } from 'lucide-react'
+import { Calendar, MapPin, GraduationCap, Briefcase, Code, Mail, Linkedin } from 'lucide-react'
 import { YouTubeVideo } from '@/components/ui/youtube-video'
 import { EducationCard } from '@/components/education-card'
 import { ExperienceTimeline } from '@/components/experience-timeline'
@@ -51,12 +51,20 @@ const sections = [
   { id: 'tech-stack', title: 'Tech Stack', icon: Code },
   { id: 'education', title: 'Education', icon: GraduationCap },
   { id: 'timeline', title: 'Experience', icon: Briefcase },
+  { id: 'contact', title: 'Contact', icon: Mail },
 ]
 
 export function About({ experiences, education }: AboutProps) {
   const [activeSection, setActiveSection] = useState('tech-stack')
   const aboutRef = useRef<HTMLElement>(null)
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({})
+  
+  // Configurable location - change this to update the map
+  const location = {
+    city: "Boston, MA",
+    coordinates: "42.3601,-71.0589", // latitude,longitude
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188752.0!2d-71.0589!3d42.3601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708b0b0b0b0b%3A0x0b0b0b0b0b0b0b0b!2sBoston%2C%20MA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,25 +74,34 @@ export function About({ experiences, education }: AboutProps) {
       const viewportHeight = window.innerHeight
       // Responsive navbar height
       const navbarOffset = window.innerWidth < 768 ? 120 : 140
+      
+      // Calculate middle of screen position
+      const middleOfScreen = scrollY + (viewportHeight / 2)
 
       // Get actual section positions
       const techStackEl = sectionRefs.current['tech-stack']
       const educationEl = sectionRefs.current.education
       const timelineEl = sectionRefs.current.timeline
+      const contactEl = sectionRefs.current.contact
 
-      if (!techStackEl || !educationEl || !timelineEl) return
+      if (!techStackEl || !educationEl || !timelineEl || !contactEl) return
 
       const techStackTop = techStackEl.offsetTop - navbarOffset
       const educationTop = educationEl.offsetTop - navbarOffset
       const timelineTop = timelineEl.offsetTop - navbarOffset
+      const contactTop = contactEl.offsetTop - navbarOffset
 
-      // Determine which section is currently in view
-      if (scrollY < educationTop) {
+      // Determine which section is currently in view based on middle of screen
+      if (middleOfScreen < techStackTop) {
         setActiveSection('tech-stack')
-      } else if (scrollY < timelineTop) {
+      } else if (middleOfScreen < educationTop) {
+        setActiveSection('tech-stack')
+      } else if (middleOfScreen < timelineTop) {
         setActiveSection('education')
-      } else {
+      } else if (middleOfScreen < contactTop) {
         setActiveSection('timeline')
+      } else {
+        setActiveSection('contact')
       }
     }
 
@@ -117,7 +134,7 @@ export function About({ experiences, education }: AboutProps) {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-muted-foreground bg-clip-text text-transparent">
             About Me
           </h2>
         </div>
@@ -135,8 +152,8 @@ export function About({ experiences, education }: AboutProps) {
                       onClick={() => scrollToSection(section.id)}
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${
                         activeSection === section.id
-                          ? 'bg-white/10 border border-white/20 text-white'
-                          : 'text-gray-400 hover:text-white hover:bg-white/5'
+                          ? 'bg-primary/20 border border-primary/30 text-white'
+                          : 'text-muted-foreground hover:text-white hover:bg-primary/5'
                       }`}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" />
@@ -166,14 +183,14 @@ export function About({ experiences, education }: AboutProps) {
                   <h4 className="text-lg font-semibold text-white">Languages & Tools</h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     {skills['languages-and-tools'].map((skill, index) => (
-                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-gray-900/30 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 hover:bg-gray-800/30 hover:scale-105">
+                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:bg-primary/5 hover:scale-105">
                         <img 
                           src={`/images/skills/${skill.folder}/${skill.filename}`} 
                           alt={skill.name} 
                           className="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110"
                           title={skill.name}
                         />
-                        <span className="text-xs text-gray-300 mt-2 text-center group-hover:text-white transition-colors">
+                        <span className="text-xs text-muted-foreground mt-2 text-center group-hover:text-white transition-colors">
                           {skill.name}
                         </span>
                       </div>
@@ -186,14 +203,14 @@ export function About({ experiences, education }: AboutProps) {
                   <h4 className="text-lg font-semibold text-white">Fullstack & Cloud</h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     {skills['fullstack-and-cloud'].map((skill, index) => (
-                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-gray-900/30 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 hover:bg-gray-800/30 hover:scale-105">
+                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:bg-primary/5 hover:scale-105">
                         <img 
                           src={`/images/skills/${skill.folder}/${skill.filename}`} 
                           alt={skill.name} 
                           className="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110"
                           title={skill.name}
                         />
-                        <span className="text-xs text-gray-300 mt-2 text-center group-hover:text-white transition-colors">
+                        <span className="text-xs text-muted-foreground mt-2 text-center group-hover:text-white transition-colors">
                           {skill.name}
                         </span>
                       </div>
@@ -232,11 +249,11 @@ export function About({ experiences, education }: AboutProps) {
                 Experience Dumps
               </h3>
               <div className="space-y-8 relative">
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/80 to-primary/60"></div>
                 {experiences.map((exp, index) => (
                   <div key={exp.id} className="relative">
                     <div className="absolute left-6 -translate-x-1/2 z-10">
-                      <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-2 border-black shadow-lg"></div>
+                      <div className="w-4 h-4 bg-gradient-to-r from-primary to-primary/80 rounded-full border-2 border-background shadow-lg"></div>
                     </div>
                     <div className="ml-16">
                       <CardContainer className="inter-var" containerClassName="py-0">
@@ -282,7 +299,7 @@ export function About({ experiences, education }: AboutProps) {
              <div 
                ref={(el) => { sectionRefs.current.timeline = el }}
                data-section="timeline"
-               className="mb-16"
+               className="mb-2"
              >
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
                 <Briefcase className="w-6 h-6" />
@@ -290,6 +307,81 @@ export function About({ experiences, education }: AboutProps) {
               </h3>
               <ExperienceTimeline experiences={experiences} />
             </div>
+
+            {/* Contact Section */}
+            <div 
+              ref={(el) => { sectionRefs.current.contact = el }}
+              data-section="contact"
+              className="mb-16"
+            >
+              <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                <Mail className="w-6 h-6" />
+                Contact
+              </h3>
+              <div className="space-y-6">
+                <div className="flex flex-col md:flex-row md:items-start gap-4">
+                  {/* Left side - Get in Touch */}
+                  <div className="space-y-4 md:flex-1 pl-12">
+                    <h4 className="text-lg font-semibold">Lets Connect</h4>
+                    <p className="text-gray-300">
+                      I'm always interested in new opportunities and collaborations. 
+                      Feel free to reach out if you'd like to work together or just have a chat!
+                    </p>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <Mail className="w-5 h-5 text-primary" />
+                        <a 
+                          href="mailto:abhishek@example.com" 
+                          className="text-white hover:text-primary transition-colors"
+                        >
+                          abhishek@example.com
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Linkedin className="w-5 h-5 text-primary" />
+                        <a 
+                          href="https://linkedin.com/in/abhishek-uddaraju" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-primary transition-colors"
+                        >
+                          linkedin.com/in/abhishek-uddaraju
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <MapPin className="w-5 h-5 text-primary" />
+                        <a 
+                          href="https://www.google.com/maps/search/Boston,+MA" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-primary transition-colors"
+                        >
+                          {location.city}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right side - Google Map */}
+                  <div className="md:w-[400px] w-full">
+                    <div className="rounded-lg overflow-hidden border border-white/20">
+                      <iframe
+                        src={location.embedUrl}
+                        width="100%"
+                        height="250"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

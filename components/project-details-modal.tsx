@@ -79,16 +79,16 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm">
-      <div className="bg-black border border-white/20 rounded-xl max-w-7xl w-full max-h-[95vh] overflow-hidden shadow-2xl shadow-emerald-500/10">
+      <div className="bg-background border border-border rounded-xl max-w-7xl w-full max-h-[95vh] overflow-hidden shadow-2xl shadow-primary/10">
         {/* Header with close button */}
         <div className="relative px-8 pt-12 pb-0">
           <div className="flex flex-col">
             <h2 className="text-2xl font-bold text-white">{project.name}</h2>
-            <span className="text-md text-gray-400 mt-1">{formatDate(project.date)}</span>
+            <span className="text-md text-muted-foreground mt-1">{formatDate(project.date)}</span>
           </div>
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-white hover:text-white transition-colors p-2 hover:bg-white/20 rounded-lg border border-white/20 hover:border-white/30"
+            className="absolute top-6 right-6 text-white hover:text-white transition-colors p-2 hover:bg-primary/20 rounded-lg border border-border hover:border-primary/30"
           >
             <X size={24} strokeWidth={4} />
           </button>
@@ -101,7 +101,7 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
             <div className="space-y-6">
 
               {/* Description */}
-              <div className="text-gray-300 leading-relaxed text-left">
+              <div className="text-muted-foreground leading-relaxed text-left">
                 {project.description}
               </div>
 
@@ -112,7 +112,7 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 border border-white/20 hover:border-white/30 font-medium"
+                      className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-all duration-200 font-medium"
                     >
                       <Github size={18} />
                       GitHub
@@ -123,7 +123,7 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
                       href={project.ieee}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 border border-white/20 hover:border-white/30 font-medium"
+                      className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-all duration-200 font-medium"
                     >
                       <FileText size={18} />
                       IEEE
@@ -134,7 +134,7 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
                       href={project.report}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 text-sm"
+                      className="flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-all duration-200 border border-primary/30 hover:border-primary/50 text-sm"
                     >
                       <FileText size={16} />
                       Report
@@ -145,7 +145,7 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 border border-white/20 hover:border-white/30 font-medium"
+                      className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-all duration-200 font-medium"
                     >
                       <Globe size={18} />
                       Live

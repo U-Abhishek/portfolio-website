@@ -21,7 +21,7 @@ export function Skills({ skills: _skills }: SkillsProps) {
   const { skills } = skillsData as SkillsData
 
   const SkillCard = ({ skill }: { skill: SkillItem }) => (
-    <div className="group relative p-4 rounded-xl bg-gray-900/30 border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 hover:bg-gray-800/30 hover:scale-105 hover:shadow-lg hover:shadow-gray-900/20">
+    <div className="group relative p-4 rounded-xl bg-card/30 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:bg-primary/5 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
       <div className="flex flex-col items-center text-center space-y-3">
         <div className="relative">
           <img 
@@ -31,13 +31,13 @@ export function Skills({ skills: _skills }: SkillsProps) {
             title={skill.name}
           />
         </div>
-        <h3 className="text-sm sm:text-base font-medium text-white group-hover:text-gray-200 transition-colors">
+        <h3 className="text-sm sm:text-base font-medium text-white group-hover:text-primary transition-colors">
           {skill.name}
         </h3>
       </div>
       
       {/* Subtle glow effect on hover */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
     </div>
   )
 
@@ -45,7 +45,7 @@ export function Skills({ skills: _skills }: SkillsProps) {
     <div className="space-y-6">
       <div className="text-center">
         <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-gray-400 text-sm sm:text-base">{description}</p>
+        <p className="text-muted-foreground text-sm sm:text-base">{description}</p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {skills.map((skill, index) => (
@@ -59,10 +59,10 @@ export function Skills({ skills: _skills }: SkillsProps) {
     <section id="tech-stack" className="py-16 px-4 sm:px-6 lg:px-8 scroll-mt-32">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-muted-foreground bg-clip-text text-transparent">
             My Tech Stack
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
         </div>

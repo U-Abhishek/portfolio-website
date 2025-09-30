@@ -18,7 +18,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <CardContainer className="inter-var" containerClassName="py-0">
-      <CardBody className="bg-black relative group/card hover:shadow-2xl hover:shadow-emerald-500/[0.1] border-white/[0.2] w-full h-auto rounded-xl p-6 border cursor-pointer">
+      <CardBody className="bg-background relative group/card hover:shadow-2xl hover:shadow-primary/[0.1] border-border w-full h-auto rounded-xl p-6 border cursor-pointer">
         {/* Title */}
         <CardItem
           translateZ="50"
@@ -30,7 +30,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Summary */}
         <CardItem
           translateZ="40"
-          className="text-gray-300 text-sm leading-relaxed mb-4"
+          className="text-muted-foreground text-sm leading-relaxed mb-4"
         >
           {project.summary ?? project.description}
         </CardItem>

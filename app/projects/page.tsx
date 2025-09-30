@@ -5,6 +5,7 @@ import { ProjectCard } from '@/components/project-card'
 import { ProjectDetailsModal } from '@/components/project-details-modal'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { FixedSpotlightBackground } from '@/components/ui/fixed-spotlight-background'
 import projectsData from '@/data/projects.json'
 
 type Category = 'all' | 'Computer Vision' | 'Robotics' | 'Machine Learning'
@@ -38,10 +39,15 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
+    <div className="min-h-screen text-white relative">
+      {/* Fixed Spotlight Background */}
+      <FixedSpotlightBackground />
       
-      <div className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      {/* Content */}
+      <div className="relative z-10">
+        <Navbar />
+        
+        <div className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-left mb-12 mt-8">
@@ -59,8 +65,8 @@ export default function ProjectsPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
-                      ? 'bg-emerald-500 text-black'
-                      : 'bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-white/10 text-muted-foreground hover:bg-primary/20 hover:text-white'
                   }`}
                 >
                   {category === 'all' ? 'All Projects' : category}
@@ -81,22 +87,23 @@ export default function ProjectsPage() {
           {/* No results message */}
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-gray-400 text-lg">
+              <p className="text-muted-foreground text-lg">
                 No projects found in this category.
               </p>
             </div>
           )}
         </div>
-      </div>
-      
-      <Footer />
+        </div>
+        
+        <Footer />
 
-      {/* Project Details Modal */}
-      <ProjectDetailsModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
+        {/* Project Details Modal */}
+        <ProjectDetailsModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      </div>
     </div>
   )
 }

@@ -60,17 +60,19 @@ export function Navbar() {
     <nav className="fixed top-4 left-8 right-8 z-50">
       <div
         className={cn(
-          'mx-auto max-w-7xl rounded-2xl border border-white/20 bg-black/30 backdrop-blur-xl shadow-2xl transition-all duration-300',
+          'mx-auto max-w-7xl rounded-2xl border border-white/20 bg-black/30 backdrop-blur-xl shadow-2xl transition-all duration-300 relative',
           isScrolled
-            ? 'bg-black/50 border-white/30 shadow-3xl'
-            : 'bg-black/30 border-white/20 shadow-2xl'
+            ? 'bg-black/50 border-white/30 shadow-3xl shadow-primary/5'
+            : 'bg-black/30 border-white/20 shadow-2xl shadow-primary/5'
         )}
       >
+        {/* Subtle rose accent line */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full"></div>
         <div className="flex items-center justify-between px-6 py-3">
           {/* Logo - Your Name */}
           <Link
             href="/"
-            className="text-3xl font-bold text-white hover:text-gray-300 transition-all duration-300 leading-tight"
+            className="text-3xl font-bold text-primary hover:text-primary/80 transition-all duration-300 leading-tight"
           >
             AU.
           </Link>
@@ -80,10 +82,10 @@ export function Navbar() {
             <Link
               href="/"
               className={cn(
-                'px-4 py-2 rounded-xl text-sm transition-all duration-200',
+                'px-4 py-2 rounded-xl text-sm transition-all duration-200 relative',
                 pathname === '/' && !activeAboutSection
-                  ? 'text-white font-bold'
-                  : 'text-gray-300 hover:text-white font-medium'
+                  ? 'text-white font-bold bg-primary/10 border border-primary/20'
+                  : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
               )}
             >
               Home
@@ -91,10 +93,10 @@ export function Navbar() {
             <Link
               href="/#about"
               className={cn(
-                'px-4 py-2 rounded-xl text-sm transition-all duration-200',
+                'px-4 py-2 rounded-xl text-sm transition-all duration-200 relative',
                 pathname === '/' && activeAboutSection
-                  ? 'text-white font-bold'
-                  : 'text-gray-300 hover:text-white font-medium'
+                  ? 'text-white font-bold bg-primary/10 border border-primary/20'
+                  : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
               )}
             >
               About
@@ -102,10 +104,10 @@ export function Navbar() {
             <Link
               href="/projects"
               className={cn(
-                'px-4 py-2 rounded-xl text-sm transition-all duration-200',
+                'px-4 py-2 rounded-xl text-sm transition-all duration-200 relative',
                 pathname === '/projects'
-                  ? 'text-white font-bold'
-                  : 'text-gray-300 hover:text-white font-medium'
+                  ? 'text-white font-bold bg-primary/10 border border-primary/20'
+                  : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
               )}
             >
               Projects

@@ -56,7 +56,7 @@ export function ProjectDetail({ open, onOpenChange, project }: ProjectDetailProp
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl bg-black text-white border-white/10 max-h-[85vh] overflow-y-auto p-10 md:p-12">
+      <DialogContent className="max-w-7xl bg-background text-foreground border-border max-h-[85vh] overflow-y-auto p-10 md:p-12">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">{project.name}</DialogTitle>
           {links.length > 0 && (
@@ -67,7 +67,7 @@ export function ProjectDetail({ open, onOpenChange, project }: ProjectDetailProp
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs px-2 py-1 rounded border border-white/20 hover:bg-white/10 transition-colors"
+                  className="text-xs px-2 py-1 rounded border border-border hover:bg-primary/20 hover:text-primary transition-colors"
                 >
                   {link.label}
                 </a>
@@ -79,16 +79,16 @@ export function ProjectDetail({ open, onOpenChange, project }: ProjectDetailProp
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-3">
           <div className="space-y-5 px-4 md:px-6">
             {project.date && (
-              <div className="text-xs text-gray-400">{project.date}</div>
+              <div className="text-xs text-muted-foreground">{project.date}</div>
             )}
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-muted-foreground">
               {project.description}
             </p>
           </div>
 
           <div className="space-y-5 px-4 md:px-6">
             {hasYouTube && (
-              <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10">
+              <div className="aspect-video w-full overflow-hidden rounded-lg border border-border">
                 <iframe
                   src={youtubeEmbedUrl}
                   title={project.name}
@@ -99,7 +99,7 @@ export function ProjectDetail({ open, onOpenChange, project }: ProjectDetailProp
               </div>
             )}
             {!hasYouTube && project.image && (
-              <div className="relative w-full h-72 md:h-80 rounded-lg overflow-hidden border border-white/10">
+              <div className="relative w-full h-72 md:h-80 rounded-lg overflow-hidden border border-border">
                 <Image
                   src={project.image}
                   alt={project.name}

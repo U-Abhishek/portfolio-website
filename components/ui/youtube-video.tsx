@@ -56,8 +56,8 @@ export function YouTubeVideo({
   return (
     <div className={`relative ${className}`}>
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse rounded-lg flex items-center justify-center">
-          <div className="text-gray-500 dark:text-gray-400 text-sm">Loading video...</div>
+        <div className="absolute inset-0 bg-muted animate-pulse rounded-lg flex items-center justify-center">
+          <div className="text-muted-foreground text-sm">Loading video...</div>
         </div>
       )}
       {/* 16:9 Aspect Ratio Container */}

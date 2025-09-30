@@ -19,7 +19,7 @@ interface TimelineExperienceCardProps {
 
 export function TimelineExperienceCard({ experience }: TimelineExperienceCardProps) {
   return (
-    <div className="relative w-full max-w-4xl">
+    <div className="relative w-full">
       <CardContainer className="inter-var" containerClassName="py-0">
         <CardBody className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
