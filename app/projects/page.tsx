@@ -5,7 +5,6 @@ import { ProjectCard } from '@/components/project-card'
 import { ProjectDetailsModal } from '@/components/project-details-modal'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import { FixedSpotlightBackground } from '@/components/ui/fixed-spotlight-background'
 import projectsData from '@/data/projects.json'
 
 type Category = 'all' | 'Computer Vision' | 'Robotics' | 'Machine Learning'
@@ -13,7 +12,7 @@ type Category = 'all' | 'Computer Vision' | 'Robotics' | 'Machine Learning'
 export default function ProjectsPage() {
   const { projects } = projectsData
   const [selectedCategory, setSelectedCategory] = useState<Category>('all')
-  const [selectedProject, setSelectedProject] = useState<any>(null)
+  const [selectedProject, setSelectedProject] = useState<typeof projectsData.projects[0] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Get unique categories from project tags - memoized to prevent hydration issues
@@ -28,7 +27,7 @@ export default function ProjectsPage() {
       : projects.filter(project => project.tags?.includes(selectedCategory)).sort((a, b) => b.date.localeCompare(a.date))
   }, [projects, selectedCategory])
 
-  const handleProjectClick = (project: any) => {
+  const handleProjectClick = (project: typeof projectsData.projects[0]) => {
     setSelectedProject(project)
     setIsModalOpen(true)
   }
@@ -40,17 +39,14 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen text-white relative">
-      {/* Fixed Spotlight Background */}
-      <FixedSpotlightBackground />
-      
       {/* Content */}
-      <div className="relative z-10">
+      <div>
         <Navbar />
         
         <div className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-left mb-12 mt-8">
+          <div className="text-center mb-12 mt-8">
             <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
               Projects
             </h1>
@@ -58,15 +54,15 @@ export default function ProjectsPage() {
 
           {/* Category Filter */}
           <div className="mb-12">
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm border ${
                     selectedCategory === category
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-white/10 text-muted-foreground hover:bg-primary/20 hover:text-white'
+                      ? 'bg-primary/20 border-primary/40 text-white shadow-lg shadow-primary/10'
+                      : 'bg-white/5 border-white/20 text-muted-foreground hover:bg-white/10 hover:border-white/30 hover:text-white'
                   }`}
                 >
                   {category === 'all' ? 'All Projects' : category}

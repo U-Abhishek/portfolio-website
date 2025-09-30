@@ -11,6 +11,14 @@ export function Navbar() {
   const pathname = usePathname()
 
   useEffect(() => {
+    // Ensure About is highlighted when landing directly on /#about (e.g., from another page)
+    if (pathname === '/' && typeof window !== 'undefined' && (window.location.hash === '#about' || window.location.hash === '#about-start')) {
+      // Defer to allow layout to settle after navigation
+      setTimeout(() => {
+        setActiveAboutSection('tech-stack');
+      }, 50);
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
       
@@ -24,22 +32,22 @@ export function Navbar() {
           // Get about section positions
           const techStackEl = document.querySelector('#about [data-section="tech-stack"]')
           const educationEl = document.querySelector('#about [data-section="education"]')
-          const experienceEl = document.querySelector('#about [data-section="experience"]')
+          const timelineEl = document.querySelector('#about [data-section="timeline"]')
           
-          if (techStackEl && educationEl && experienceEl) {
+          if (techStackEl && educationEl && timelineEl) {
             const aboutTop = aboutSection.offsetTop - navbarHeight
             const techStackTop = techStackEl.getBoundingClientRect().top + scrollY - navbarHeight
             const educationTop = educationEl.getBoundingClientRect().top + scrollY - navbarHeight
-            const experienceTop = experienceEl.getBoundingClientRect().top + scrollY - navbarHeight
+            const timelineTop = timelineEl.getBoundingClientRect().top + scrollY - navbarHeight
             
             // Only set active about section if we're actually in the about section
             if (scrollY >= aboutTop) {
-              if (scrollY < educationTop) {
+              if (scrollY + 10 < educationTop) {
                 setActiveAboutSection('tech-stack')
-              } else if (scrollY < experienceTop) {
+              } else if (scrollY + 10 < timelineTop) {
                 setActiveAboutSection('education')
               } else {
-                setActiveAboutSection('experience')
+                setActiveAboutSection('timeline')
               }
             } else {
               setActiveAboutSection('')
@@ -57,45 +65,43 @@ export function Navbar() {
   }, [pathname])
 
   return (
-    <nav className="fixed top-4 left-8 right-8 z-50">
-      <div
-        className={cn(
-          'mx-auto max-w-7xl rounded-2xl border border-white/20 bg-black/30 backdrop-blur-xl shadow-2xl transition-all duration-300 relative',
-          isScrolled
-            ? 'bg-black/50 border-white/30 shadow-3xl shadow-primary/5'
-            : 'bg-black/30 border-white/20 shadow-2xl shadow-primary/5'
-        )}
-      >
-        {/* Subtle rose accent line */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full"></div>
-        <div className="flex items-center justify-between px-6 py-3">
+    <nav className="fixed top-4 left-4 right-4 z-50">
+        <div
+          className={cn(
+            'mx-auto max-w-7xl px-6 py-2 rounded-full border border-white/20 bg-black/30 backdrop-blur-xl shadow-2xl transition-all duration-500 relative',
+            isScrolled
+              ? 'bg-black/50 border-white/30 shadow-3xl shadow-primary/10'
+              : 'bg-black/30 border-white/20 shadow-2xl shadow-primary/5'
+          )}
+        >
+        <div className="flex items-center justify-between w-full gap-8">
           {/* Logo - Your Name */}
           <Link
             href="/"
-            className="text-3xl font-bold text-primary hover:text-primary/80 transition-all duration-300 leading-tight"
+            className="text-2xl font-bold text-primary hover:text-primary/80 transition-all duration-300 leading-tight hover:scale-105"
           >
             AU.
           </Link>
           
           {/* Navigation Links */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             <Link
               href="/"
               className={cn(
-                'px-4 py-2 rounded-xl text-sm transition-all duration-200 relative',
+                'px-3 py-1.5 rounded-full text-sm transition-all duration-300 relative hover:scale-105',
                 pathname === '/' && !activeAboutSection
-                  ? 'text-white font-bold bg-primary/10 border border-primary/20'
+                  ? 'text-white font-bold bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10'
                   : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
               )}
             >
               Home
             </Link>
             <Link
-              href="/#about"
+              href="/#about-start"
               className={cn(
-                'px-4 py-2 rounded-xl text-sm transition-all duration-200 relative',
+                'px-3 py-1.5 rounded-full text-sm transition-all duration-300 relative hover:scale-105',
                 pathname === '/' && activeAboutSection
-                  ? 'text-white font-bold bg-primary/10 border border-primary/20'
+                  ? 'text-white font-bold bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10'
                   : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
               )}
             >
@@ -104,9 +110,9 @@ export function Navbar() {
             <Link
               href="/projects"
               className={cn(
-                'px-4 py-2 rounded-xl text-sm transition-all duration-200 relative',
+                'px-3 py-1.5 rounded-full text-sm transition-all duration-300 relative hover:scale-105',
                 pathname === '/projects'
-                  ? 'text-white font-bold bg-primary/10 border border-primary/20'
+                  ? 'text-white font-bold bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10'
                   : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
               )}
             >

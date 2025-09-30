@@ -2,7 +2,6 @@ import { Navbar } from '@/components/navbar'
 import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
 import { Footer } from '@/components/footer'
-import { FixedSpotlightBackground } from '@/components/ui/fixed-spotlight-background'
 import experienceData from '@/data/experience.json'
 import educationData from '@/data/education.json'
 
@@ -12,11 +11,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-white relative">
-      {/* Fixed Spotlight Background */}
-      <FixedSpotlightBackground />
-      
       {/* Content */}
-      <div className="relative z-10">
+      <div>
         <Navbar />
         
         {/* Hero Section */}

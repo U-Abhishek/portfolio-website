@@ -106,7 +106,14 @@ export function About({ experiences, education }: AboutProps) {
     }
 
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Initial call
+    // Initial call and also handle landing directly on /#about
+    handleScroll()
+    if (typeof window !== 'undefined' && window.location.hash === '#about') {
+      // Force compute once after a short delay to ensure refs are set
+      setTimeout(() => {
+        handleScroll()
+      }, 100)
+    }
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -118,7 +125,7 @@ export function About({ experiences, education }: AboutProps) {
     if (element && aboutRef.current) {
       const aboutTop = aboutRef.current.offsetTop
       // Increased offset for better spacing on mobile and desktop
-      const navbarHeight = window.innerWidth < 768 ? 120 : 140
+      const navbarHeight = window.innerWidth < 768 ? 140 : 160
       const offsetTop = element.offsetTop - aboutTop + aboutRef.current.offsetTop - navbarHeight
       window.scrollTo({
         top: offsetTop,
@@ -130,7 +137,7 @@ export function About({ experiences, education }: AboutProps) {
   const { skills } = skillsData as SkillsData
 
   return (
-    <section ref={aboutRef} id="about" className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 scroll-mt-40">
+    <section ref={aboutRef} id="about" className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 scroll-mt-32 md:scroll-mt-40">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -150,10 +157,10 @@ export function About({ experiences, education }: AboutProps) {
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-full text-left transition-all duration-200 ${
                         activeSection === section.id
-                          ? 'bg-primary/20 border border-primary/30 text-white'
-                          : 'text-muted-foreground hover:text-white hover:bg-primary/5'
+                          ? 'text-white font-bold bg-white/5 border border-white/10'
+                          : 'text-muted-foreground hover:text-white hover:bg-white/5'
                       }`}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" />
@@ -169,9 +176,10 @@ export function About({ experiences, education }: AboutProps) {
           <div className="lg:col-span-3">
             {/* Tech Stack Section */}
              <div 
+               id="about-start"
                ref={(el) => { sectionRefs.current['tech-stack'] = el }}
                data-section="tech-stack"
-               className="mb-16"
+               className="mb-16 scroll-mt-28 md:scroll-mt-40"
              >
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
                 <Code className="w-6 h-6" />
@@ -324,8 +332,8 @@ export function About({ experiences, education }: AboutProps) {
                   <div className="space-y-4 md:flex-1 pl-12">
                     <h4 className="text-lg font-semibold">Lets Connect</h4>
                     <p className="text-gray-300">
-                      I'm always interested in new opportunities and collaborations. 
-                      Feel free to reach out if you'd like to work together or just have a chat!
+                      I&apos;m always interested in new opportunities and collaborations. 
+                      Feel free to reach out if you&apos;d like to work together or just have a chat!
                     </p>
                     
                     <div className="space-y-3">
@@ -363,8 +371,8 @@ export function About({ experiences, education }: AboutProps) {
                     </div>
                   </div>
                   
-                  {/* Right side - Google Map */}
-                  <div className="md:w-[400px] w-full">
+                  {/* Right side - Google Map (hidden on mobile) */}
+                  <div className="hidden md:block md:w-[400px] w-full">
                     <div className="rounded-lg overflow-hidden border border-white/20">
                       <iframe
                         src={location.embedUrl}

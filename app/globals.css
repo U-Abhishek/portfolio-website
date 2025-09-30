@@ -3,6 +3,25 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ========================================
+   COLOR PALETTE - CHANGE PRIMARY COLOR HERE
+   ======================================== */
+/* To change the primary color, replace the values below with your desired color palette */
+:root {
+  /* ROSE COLOR PALETTE - Replace this entire section to change primary color */
+  --color-primary-50: oklch(0.969 0.015 12.422);
+  --color-primary-100: oklch(0.941 0.03 12.58);
+  --color-primary-200: oklch(0.892 0.058 10.001);
+  --color-primary-300: oklch(0.81 0.117 11.638);
+  --color-primary-400: oklch(0.712 0.194 13.428);
+  --color-primary-500: oklch(0.645 0.246 16.439);
+  --color-primary-600: oklch(0.586 0.253 17.585);
+  --color-primary-700: oklch(0.514 0.222 16.935);
+  --color-primary-800: oklch(0.455 0.188 13.697);
+  --color-primary-900: oklch(0.41 0.159 10.272);
+  --color-primary-950: oklch(0.271 0.105 12.094);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,31 +68,31 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.1 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.586 0.253 17.585); /* rose-600 */
+  --primary: var(--color-primary-700); /* Uses primary-700 from color palette */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.2 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.2 0 0);
   --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.586 0.253 17.585); /* rose-600 for accents */
+  --accent: var(--color-primary-700); /* Uses primary-700 from color palette */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(0.3 0 0);
   --input: oklch(0.3 0 0);
-  --ring: oklch(0.586 0.253 17.585); /* rose-600 for focus rings */
-  --chart-1: oklch(0.586 0.253 17.585); /* rose-600 */
-  --chart-2: oklch(0.645 0.246 16.439); /* rose-500 */
-  --chart-3: oklch(0.712 0.194 13.428); /* rose-400 */
-  --chart-4: oklch(0.514 0.222 16.935); /* rose-700 */
-  --chart-5: oklch(0.455 0.188 13.697); /* rose-800 */
+  --ring: var(--color-primary-700); /* Uses primary-700 from color palette */
+  --chart-1: var(--color-primary-700); /* Uses primary-700 from color palette */
+  --chart-2: var(--color-primary-500); /* Uses primary-500 from color palette */
+  --chart-3: var(--color-primary-400); /* Uses primary-400 from color palette */
+  --chart-4: var(--color-primary-700); /* Uses primary-700 from color palette */
+  --chart-5: var(--color-primary-800); /* Uses primary-800 from color palette */
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.586 0.253 17.585); /* rose-600 */
+  --sidebar-primary: var(--color-primary-700); /* Uses primary-700 from color palette */
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.2 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.3 0 0);
-  --sidebar-ring: oklch(0.586 0.253 17.585); /* rose-600 */
+  --sidebar-ring: var(--color-primary-700); /* Uses primary-700 from color palette */
   --background: oklch(0.05 0 0);
   --foreground: oklch(0.985 0 0);
 }
@@ -95,7 +114,7 @@
   width: 20px;
   height: 20px;
   border: 2px solid oklch(0.7 0 0);
-  border-top: 2px solid oklch(0.586 0.253 17.585); /* rose-600 */
+  border-top: 2px solid var(--color-primary-600); /* Uses primary-600 from color palette */
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

@@ -1,0 +1,28 @@
+{
+  "social": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/U-Abhishek",
+      "icon": "github",
+      "label": "GitHub Profile"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/abhishek-uddaraju",
+      "icon": "linkedin",
+      "label": "LinkedIn Profile"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://x.com/abhishekud13043",
+      "icon": "twitter",
+      "label": "Twitter Profile"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:uabhishek2904@gmail.com",
+      "icon": "email",
+      "label": "Send Email"
+    }
+  ]
+}

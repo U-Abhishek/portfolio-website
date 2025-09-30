@@ -5,14 +5,14 @@ import { FeaturedProjectsShowcase } from '@/components/featured-projects-showcas
 import { ContainerTextFlip } from '@/components/ui/container-text-flip'
 import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter } from 'react-icons/fa6'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import projectsData from '@/data/projects.json'
+import socialData from '@/data/social.json'
 
 export function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [robotContainer, setRobotContainer] = useState<HTMLDivElement | null>(null)
   const [showScrollButton, setShowScrollButton] = useState(true)
-  const [socialIconPositions, setSocialIconPositions] = useState<{ [key: string]: { x: number, y: number } }>({})
-  const [isHoveringSocial, setIsHoveringSocial] = useState<string | null>(null)
 
   // Get featured projects (projects with featured: true, fallback to first 5 if none featured)
   const featuredProjects = projectsData.projects.filter(project => project.featured === true)
@@ -36,37 +36,6 @@ export function Hero() {
     }
   }, [robotContainer])
 
-  // Magnetic effect for social icons
-  useEffect(() => {
-    const handleGlobalMouseMove = (e: MouseEvent) => {
-      const socialIcons = document.querySelectorAll('[data-social-icon]')
-      socialIcons.forEach((icon) => {
-        const rect = icon.getBoundingClientRect()
-        const centerX = rect.left + rect.width / 2
-        const centerY = rect.top + rect.height / 2
-        const distance = Math.sqrt(Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2))
-        
-        if (distance < 100) { // Magnetic attraction radius
-          const force = (100 - distance) / 100
-          const deltaX = (e.clientX - centerX) * force * 0.1
-          const deltaY = (e.clientY - centerY) * force * 0.1
-          
-          setSocialIconPositions(prev => ({
-            ...prev,
-            [icon.getAttribute('data-social-icon') || '']: { x: deltaX, y: deltaY }
-          }))
-        } else {
-          setSocialIconPositions(prev => ({
-            ...prev,
-            [icon.getAttribute('data-social-icon') || '']: { x: 0, y: 0 }
-          }))
-        }
-      })
-    }
-
-    window.addEventListener('mousemove', handleGlobalMouseMove)
-    return () => window.removeEventListener('mousemove', handleGlobalMouseMove)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,7 +64,7 @@ export function Hero() {
               {/* Left side - Text content */}
               <div className="space-y-6 text-left py-4">
                 {/* My Information Section */}
-                <div className="relative p-6 rounded-2xl border border-white/20 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm overflow-hidden shadow-2xl shadow-primary/20">
+                <div className="relative p-6 rounded-2xl border border-white/20 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm overflow-hidden">
                   {/* Primary color accent lines */}
                   <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
@@ -117,74 +86,37 @@ export function Hero() {
                       I specialize in AI system design and deployment, building scalable intelligent systems and end-to-end machine learning workflows.
                     </p>
 
-                    {/* Magnetic Social links */}
+                    {/* Social links */}
                     <div className="flex items-center space-x-3 pt-2">
-                      <a
-                        href="https://github.com/abhishek-uddaraju"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-social-icon="github"
-                        className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 hover:scale-110"
-                        style={{
-                          transform: `translate(${socialIconPositions.github?.x || 0}px, ${socialIconPositions.github?.y || 0}px)`
-                        }}
-                        onMouseEnter={() => setIsHoveringSocial('github')}
-                        onMouseLeave={() => setIsHoveringSocial(null)}
-                      >
-                        <FaGithub className="w-5 h-5" />
-                        {isHoveringSocial === 'github' && (
-                          <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-                        )}
-                      </a>
-                      <a
-                        href="https://linkedin.com/in/abhishek-uddaraju"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-social-icon="linkedin"
-                        className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 hover:scale-110"
-                        style={{
-                          transform: `translate(${socialIconPositions.linkedin?.x || 0}px, ${socialIconPositions.linkedin?.y || 0}px)`
-                        }}
-                        onMouseEnter={() => setIsHoveringSocial('linkedin')}
-                        onMouseLeave={() => setIsHoveringSocial(null)}
-                      >
-                        <FaLinkedin className="w-5 h-5" />
-                        {isHoveringSocial === 'linkedin' && (
-                          <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-                        )}
-                      </a>
-                      <a
-                        href="https://x.com/abhishek-uddaraju"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-social-icon="twitter"
-                        className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 hover:scale-110"
-                        style={{
-                          transform: `translate(${socialIconPositions.twitter?.x || 0}px, ${socialIconPositions.twitter?.y || 0}px)`
-                        }}
-                        onMouseEnter={() => setIsHoveringSocial('twitter')}
-                        onMouseLeave={() => setIsHoveringSocial(null)}
-                      >
-                        <FaXTwitter className="w-5 h-5" />
-                        {isHoveringSocial === 'twitter' && (
-                          <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-                        )}
-                      </a>
-                      <a
-                        href="mailto:abhishek@example.com"
-                        data-social-icon="email"
-                        className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 hover:scale-110"
-                        style={{
-                          transform: `translate(${socialIconPositions.email?.x || 0}px, ${socialIconPositions.email?.y || 0}px)`
-                        }}
-                        onMouseEnter={() => setIsHoveringSocial('email')}
-                        onMouseLeave={() => setIsHoveringSocial(null)}
-                      >
-                        <FaEnvelope className="w-5 h-5" />
-                        {isHoveringSocial === 'email' && (
-                          <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-                        )}
-                      </a>
+                      {socialData.social.map((social) => {
+                        const getIcon = () => {
+                          switch (social.icon) {
+                            case 'github':
+                              return <FaGithub className="w-5 h-5" />
+                            case 'linkedin':
+                              return <FaLinkedin className="w-5 h-5" />
+                            case 'twitter':
+                              return <FaXTwitter className="w-5 h-5" />
+                            case 'email':
+                              return <FaEnvelope className="w-5 h-5" />
+                            default:
+                              return null
+                          }
+                        }
+
+                        return (
+                          <a
+                            key={social.name}
+                            href={social.url}
+                            target={social.icon === 'email' ? '_self' : '_blank'}
+                            rel={social.icon === 'email' ? '' : 'noopener noreferrer'}
+                            className="p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 hover:scale-120"
+                            title={social.label}
+                          >
+                            {getIcon()}
+                          </a>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>
@@ -193,10 +125,10 @@ export function Hero() {
                 <FeaturedProjectsShowcase projects={displayProjects} />
               </div>
 
-              {/* Right side - 3D Robot */}
+              {/* Right side - 3D Robot (hidden on mobile/tablet) */}
               <div 
                 ref={setRobotContainer}
-                className="relative h-[500px] lg:h-[600px] border border-white/20 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl shadow-primary/20"
+                className="hidden lg:block relative h-[500px] lg:h-[600px] border border-white/20 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm rounded-2xl overflow-hidden"
               >
                 <SplineScene 
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
@@ -207,6 +139,25 @@ export function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Scroll down indicator */}
+        {showScrollButton && (
+          <Link
+            href="/#about-start"
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm text-muted-foreground hover:text-white hover:bg-primary/10 hover:border-primary/30 transition-colors"
+          >
+            <span>Scroll down</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="w-4 h-4 animate-bounce"
+              aria-hidden="true"
+            >
+              <path fillRule="evenodd" d="M3.22 7.22a.75.75 0 011.06 0L10 12.94l5.72-5.72a.75.75 0 111.06 1.06l-6.25 6.25a.75.75 0 01-1.06 0L3.22 8.28a.75.75 0 010-1.06z" clipRule="evenodd" />
+            </svg>
+          </Link>
+        )}
 
       </section>
 
