@@ -1,41 +1,15 @@
 'use client'
 
-import { SplineScene } from '@/components/ui/spline'
-import { FeaturedProjectsShowcase } from '@/components/featured-projects-showcase'
 import { ContainerTextFlip } from '@/components/ui/container-text-flip'
+import { BackgroundLines } from '@/components/ui/background-lines'
 import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter } from 'react-icons/fa6'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import projectsData from '@/data/projects.json'
 import socialData from '@/data/social.json'
+import { FeaturedProjectsCard } from '@/components/featured-projects-card'
 
 export function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [robotContainer, setRobotContainer] = useState<HTMLDivElement | null>(null)
   const [showScrollButton, setShowScrollButton] = useState(true)
-
-  // Get featured projects (projects with featured: true, fallback to first 5 if none featured)
-  const featuredProjects = projectsData.projects.filter(project => project.featured === true)
-  const displayProjects = featuredProjects.length > 0 ? featuredProjects : projectsData.projects.slice(0, 5)
-  
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (robotContainer) {
-        const rect = robotContainer.getBoundingClientRect()
-        setMousePosition({ 
-          x: e.clientX - rect.left, 
-          y: e.clientY - rect.top 
-        })
-      }
-    }
-
-    if (robotContainer) {
-      robotContainer.addEventListener('mousemove', handleMouseMove)
-      return () => robotContainer.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [robotContainer])
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,49 +27,61 @@ export function Hero() {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        
-
-        {/* Content layout - text left, robot right */}
-        <div className="relative z-20 w-full h-full flex items-center">
+      <BackgroundLines className="relative h-screen overflow-hidden">
+        {/* My Information Section - Centered */}
+        <div className="relative z-20 w-full h-full flex items-center justify-center">
           <div className="w-full px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-              {/* Left side - Text content */}
-              <div className="space-y-6 text-left py-4">
-                {/* My Information Section */}
-                <div className="relative p-6 rounded-2xl border border-border bg-card overflow-hidden">
-                  
-                  <div className="space-y-4">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
-                      Abhishek Uddaraju
-                    </h1>
-                    <div className="text-xl sm:text-2xl text-muted-foreground font-medium">
-                      I am a{' '}
-                      <ContainerTextFlip
-                        words={["AI Systems Architect", "ML Engineer", "Developer"]}
-                        interval={3000}
-                        animationDuration={700}
-                        textClassName="text-primary font-semibold"
-                      />
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center w-full">
+                <div className="relative p-4 sm:p-6 rounded-2xl overflow-hidden w-full">
+                  <div className="space-y-2 sm:space-y-3">
+                    {/* First div: Name and flip */}
+                    <div className="space-y-3 sm:space-y-4">
+                      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                        Abhishek Uddaraju
+                      </h1>
+                      <div className="text-xl sm:text-3xl lg:text-4xl text-muted-foreground font-medium">
+                        <ContainerTextFlip
+                          words={["AI Systems Architect", "ML Engineer", "Developer"]}
+                          interval={3000}
+                          animationDuration={700}
+                          textClassName="text-primary font-semibold"
+                        />
+                      </div>
                     </div>
-                    <p className="text-md text-muted-foreground leading-relaxed">
-                      I specialize in AI system design and deployment, building scalable intelligent systems and end-to-end machine learning workflows.
-                    </p>
 
-                    {/* Social links */}
-                    <div className="flex items-center space-x-3 pt-2">
+                    {/* Second div: Content | Featured Projects */}
+                    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
+                      {/* Left side - Text content */}
+                      <div className="flex-1 text-center lg:text-right">
+                        <p className="text-base sm:text-xl text-muted-foreground leading-relaxed">
+                          I specialize in AI system design and deployment, building scalable intelligent systems and end-to-end machine learning workflows.
+                        </p>
+                      </div>
+
+                      {/* Vertical divider line - centered */}
+                      <div className="hidden lg:flex w-px h-16 bg-white/40 justify-center items-center"></div>
+
+                      {/* Right side - Featured Projects Card */}
+                      <div className="w-full lg:w-auto lg:flex-shrink-0">
+                        <FeaturedProjectsCard className="lg:max-w-sm" />
+                      </div>
+                    </div>
+
+                    {/* Third div: Icons */}
+                    <div className="flex items-center justify-center space-x-2 sm:space-x-3 w-full">
+                      <span className="invisible">A</span>
                       {socialData.social.map((social) => {
                         const getIcon = () => {
                           switch (social.icon) {
                             case 'github':
-                              return <FaGithub className="w-5 h-5" />
+                              return <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
                             case 'linkedin':
-                              return <FaLinkedin className="w-5 h-5" />
+                              return <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                             case 'twitter':
-                              return <FaXTwitter className="w-5 h-5" />
+                              return <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
                             case 'email':
-                              return <FaEnvelope className="w-5 h-5" />
+                              return <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6" />
                             default:
                               return null
                           }
@@ -107,7 +93,7 @@ export function Hero() {
                             href={social.url}
                             target={social.icon === 'email' ? '_self' : '_blank'}
                             rel={social.icon === 'email' ? '' : 'noopener noreferrer'}
-                            className="p-2 rounded-full bg-secondary border border-border hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-120"
+                            className="p-2 sm:p-3 rounded-full bg-secondary border border-border hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-120"
                             title={social.label}
                           >
                             {getIcon()}
@@ -115,27 +101,15 @@ export function Hero() {
                         )
                       })}
                     </div>
+
                   </div>
                 </div>
-
-                {/* Featured Projects Showcase */}
-                <FeaturedProjectsShowcase projects={displayProjects} />
               </div>
-
-              {/* Right side - 3D Robot (hidden on mobile/tablet) */}
-              <div 
-                ref={setRobotContainer}
-                className="hidden lg:block relative h-[500px] lg:h-[600px] border border-border bg-card rounded-2xl overflow-hidden"
-              >
-                <SplineScene 
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
             </div>
           </div>
         </div>
+
+
 
         {/* Scroll down indicator */}
         {showScrollButton && (
@@ -156,7 +130,7 @@ export function Hero() {
           </Link>
         )}
 
-      </section>
+      </BackgroundLines>
 
     </>
   )

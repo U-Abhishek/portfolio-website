@@ -36,41 +36,44 @@ export function ContainerTextFlip({
   const currentWord = words[currentWordIndex]
 
   return (
-    <motion.div
-      layout
-      className={`relative inline-block ${className}`}
-      transition={{ duration: animationDuration / 1000, ease: "easeInOut" }}
-    >
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={currentWord}
-          className={`inline-block ${textClassName}`}
-          initial={{ opacity: 0, filter: "blur(4px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, filter: "blur(4px)" }}
-          transition={{
-            duration: animationDuration / 1000 / 2,
-            ease: "easeInOut"
-          }}
-        >
-          {currentWord.split('').map((letter, index) => (
-            <motion.span
-              key={`${currentWord}-${index}`}
-              className="inline-block"
-              initial={{ opacity: 0, filter: "blur(4px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              transition={{
-                delay: index * 0.02,
-                duration: animationDuration / 1000 / 3,
-                ease: "easeOut"
-              }}
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </motion.span>
-          ))}
-        </motion.span>
-      </AnimatePresence>
-    </motion.div>
+    <div className={`relative inline-block ${className}`}>
+      <div className="relative overflow-hidden perspective-1000">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentWord}
+            className={`relative inline-block px-4 py-2 rounded-lg bg-card/30 backdrop-blur-sm border border-border/50 shadow-lg ${textClassName}`}
+            initial={{ 
+              opacity: 0, 
+              y: 20,
+              rotateX: -90,
+              scale: 0.9
+            }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              rotateX: 0,
+              scale: 1
+            }}
+            exit={{ 
+              opacity: 0, 
+              y: 20,
+              rotateX: -90,
+              scale: 0.9
+            }}
+            transition={{
+              duration: 0.4,
+              ease: "easeInOut"
+            }}
+            style={{
+              transformStyle: "preserve-3d",
+              backfaceVisibility: "hidden"
+            }}
+          >
+            {currentWord}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
   )
 }
 

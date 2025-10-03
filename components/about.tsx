@@ -338,16 +338,30 @@ export function About({ experiences, education }: AboutProps) {
                     
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-primary" />
                         <a 
-                          href="mailto:abhishek@example.com" 
+                          href="mailto:uabhishek2904@gmail.com" 
+                          className="text-primary hover:text-white transition-colors"
+                          title="Send Email"
+                        >
+                          <Mail className="w-5 h-5" />
+                        </a>
+                        <a 
+                          href="mailto:uabhishek2904@gmail.com" 
                           className="text-white hover:text-primary transition-colors"
                         >
-                          abhishek@example.com
+                          uabhishek2904@gmail.com
                         </a>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Linkedin className="w-5 h-5 text-primary" />
+                        <a 
+                          href="https://linkedin.com/in/abhishek-uddaraju" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-white transition-colors"
+                          title="LinkedIn Profile"
+                        >
+                          <Linkedin className="w-5 h-5" />
+                        </a>
                         <a 
                           href="https://linkedin.com/in/abhishek-uddaraju" 
                           target="_blank"
@@ -358,7 +372,15 @@ export function About({ experiences, education }: AboutProps) {
                         </a>
                       </div>
                       <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-primary" />
+                        <a 
+                          href="https://www.google.com/maps/search/Boston,+MA" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-white transition-colors"
+                          title="View Location"
+                        >
+                          <MapPin className="w-5 h-5" />
+                        </a>
                         <a 
                           href="https://www.google.com/maps/search/Boston,+MA" 
                           target="_blank"

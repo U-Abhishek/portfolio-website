@@ -42,7 +42,7 @@
       "report": "https://drive.google.com/file/d/1bxmgPQXGWOioHoGkAmJCU9crCmD2XjIh/view",
       "image": "/images/projects/Content-Based Image Retrieval.png",
       "youtube": "",
-      "tags": ["Computer Vision"],
+      "tags": ["Machine Learning / Vision"],
       "summary": "Feature-based image matching using color, texture, regions, and deep features; compares images with metrics like histogram intersection.",
       "featured": true
     },
@@ -56,7 +56,7 @@
       "report": "https://drive.google.com/file/d/1CPJmNOlbd0gZSQDC1_rxCFZbUmbiTfSl/view",
       "image": "/images/projects/realtime object detection.png",
       "youtube": "",
-      "tags": ["Computer Vision"],
+      "tags": ["Machine Learning / Vision"],
       "summary": "Region-based object recognition in video using moments, percent fill, and KNN/L2 metrics with a small training database.",
       "featured": false
     },
@@ -70,7 +70,7 @@
       "report": "",
       "image": "/images/projects/calorie counter.png",
       "youtube": "",
-      "tags": ["Computer Vision"],
+      "tags": ["Machine Learning / Vision"],
       "summary": "Simple interface to track daily foods and calories with a user-supplied scale.",
       "featured": false
     },
@@ -84,7 +84,7 @@
       "report": "https://drive.google.com/file/d/1RhgZgy-aXfWRKdqMsXR65-mGC_Br-2no/view",
       "image": "/images/projects/road surface segmentation.png",
       "youtube": "",
-      "tags": ["Computer Vision"],
+      "tags": ["Machine Learning / Vision"],
       "summary": "Training strategy to improve cross-dataset generalization for road surface segmentation using deep learning.",
       "featured": false
     },
@@ -98,7 +98,7 @@
       "report": "",
       "image": "/images/projects/Customized Region Proposal based Traffic Sign Detection.png",
       "youtube": "",
-      "tags": ["Computer Vision"],
+      "tags": ["Machine Learning / Vision"],
       "summary": "Lightweight traffic sign detection using a custom region proposal method that reduces proposals vs. selective search.",
       "featured": false
     },
@@ -154,7 +154,7 @@
       "report": "",
       "image": "/images/projects/mppt.png",
       "youtube": "",
-      "tags": ["Machine Learning"],
+      "tags": ["Machine Learning / Vision"],
       "summary": "Comparison of P&O and ANN-based MPPT on a boost converter for improved tracking and stability.",
       "featured": false
     }

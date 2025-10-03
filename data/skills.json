@@ -30,6 +30,16 @@
         "name": "TensorFlow",
         "filename": "tensorflow.svg",
         "folder": "languages-and-tools"
+      },
+      {
+        "name": "LangGraph",
+        "filename": "langgraph-color.svg",
+        "folder": "languages-and-tools"
+      },
+      {
+        "name": "Ollama",
+        "filename": "ollama.svg",
+        "folder": "languages-and-tools"
       }
     ],
     "fullstack-and-cloud": [
