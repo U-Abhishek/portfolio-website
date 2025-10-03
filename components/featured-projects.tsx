@@ -69,7 +69,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             <>
               <button
                 onClick={goToPrevious}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/50 backdrop-blur-sm border border-border hover:bg-primary/20 transition-all duration-200"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-secondary border border-border hover:bg-primary transition-all duration-200"
                 aria-label="Previous project"
               >
                 <ChevronLeft className="w-6 h-6 text-white" />
@@ -77,7 +77,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
               
               <button
                 onClick={goToNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/50 backdrop-blur-sm border border-border hover:bg-primary/20 transition-all duration-200"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-secondary border border-border hover:bg-primary transition-all duration-200"
                 aria-label="Next project"
               >
                 <ChevronRight className="w-6 h-6 text-white" />

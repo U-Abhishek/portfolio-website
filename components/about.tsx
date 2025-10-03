@@ -159,8 +159,8 @@ export function About({ experiences, education }: AboutProps) {
                       onClick={() => scrollToSection(section.id)}
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-full text-left transition-all duration-200 ${
                         activeSection === section.id
-                          ? 'text-white font-bold bg-white/5 border border-white/10'
-                          : 'text-muted-foreground hover:text-white hover:bg-white/5'
+                          ? 'text-white font-bold bg-primary border border-primary'
+                          : 'text-muted-foreground hover:text-primary hover:bg-secondary'
                       }`}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" />
@@ -191,14 +191,14 @@ export function About({ experiences, education }: AboutProps) {
                   <h4 className="text-lg font-semibold text-white">Languages & Tools</h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     {skills['languages-and-tools'].map((skill, index) => (
-                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:bg-primary/5 hover:scale-105">
+                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-secondary transition-all duration-300 hover:bg-secondary/5 hover:scale-105">
                         <img 
                           src={`/images/skills/${skill.folder}/${skill.filename}`} 
                           alt={skill.name} 
                           className="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110"
                           title={skill.name}
                         />
-                        <span className="text-xs text-muted-foreground mt-2 text-center group-hover:text-white transition-colors">
+                        <span className="text-xs text-muted-foreground mt-2 text-center group-hover:text-white group-hover:font-bold transition-all duration-300">
                           {skill.name}
                         </span>
                       </div>
@@ -211,14 +211,14 @@ export function About({ experiences, education }: AboutProps) {
                   <h4 className="text-lg font-semibold text-white">Fullstack & Cloud</h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     {skills['fullstack-and-cloud'].map((skill, index) => (
-                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:bg-primary/5 hover:scale-105">
+                      <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-secondary transition-all duration-300 hover:bg-secondary/5 hover:scale-105">
                         <img 
                           src={`/images/skills/${skill.folder}/${skill.filename}`} 
                           alt={skill.name} 
                           className="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110"
                           title={skill.name}
                         />
-                        <span className="text-xs text-muted-foreground mt-2 text-center group-hover:text-white transition-colors">
+                        <span className="text-xs text-muted-foreground mt-2 text-center group-hover:text-white group-hover:font-bold transition-all duration-300">
                           {skill.name}
                         </span>
                       </div>

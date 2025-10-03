@@ -59,10 +59,10 @@ export default function ProjectsPage() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm border ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
                     selectedCategory === category
-                      ? 'bg-primary/20 border-primary/40 text-white shadow-lg shadow-primary/10'
-                      : 'bg-white/5 border-white/20 text-muted-foreground hover:bg-white/10 hover:border-white/30 hover:text-white'
+                      ? 'bg-primary border-primary text-white'
+                      : 'bg-secondary border-border text-muted-foreground hover:bg-primary hover:border-primary hover:text-white'
                   }`}
                 >
                   {category === 'all' ? 'All Projects' : category}

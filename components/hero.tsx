@@ -64,10 +64,7 @@ export function Hero() {
               {/* Left side - Text content */}
               <div className="space-y-6 text-left py-4">
                 {/* My Information Section */}
-                <div className="relative p-6 rounded-2xl border border-white/20 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm overflow-hidden">
-                  {/* Primary color accent lines */}
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
+                <div className="relative p-6 rounded-2xl border border-border bg-card overflow-hidden">
                   
                   <div className="space-y-4">
                     <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
@@ -110,7 +107,7 @@ export function Hero() {
                             href={social.url}
                             target={social.icon === 'email' ? '_self' : '_blank'}
                             rel={social.icon === 'email' ? '' : 'noopener noreferrer'}
-                            className="p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300 hover:scale-120"
+                            className="p-2 rounded-full bg-secondary border border-border hover:bg-primary hover:border-primary transition-all duration-300 hover:scale-120"
                             title={social.label}
                           >
                             {getIcon()}
@@ -128,7 +125,7 @@ export function Hero() {
               {/* Right side - 3D Robot (hidden on mobile/tablet) */}
               <div 
                 ref={setRobotContainer}
-                className="hidden lg:block relative h-[500px] lg:h-[600px] border border-white/20 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm rounded-2xl overflow-hidden"
+                className="hidden lg:block relative h-[500px] lg:h-[600px] border border-border bg-card rounded-2xl overflow-hidden"
               >
                 <SplineScene 
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
@@ -144,7 +141,7 @@ export function Hero() {
         {showScrollButton && (
           <Link
             href="/#about-start"
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm text-muted-foreground hover:text-white hover:bg-primary/10 hover:border-primary/30 transition-colors"
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary text-sm text-muted-foreground hover:text-white hover:bg-primary hover:border-primary transition-colors"
           >
             <span>Scroll down</span>
             <svg

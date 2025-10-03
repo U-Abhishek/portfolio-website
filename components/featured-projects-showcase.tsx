@@ -44,7 +44,7 @@ export function FeaturedProjectsShowcase({ projects }: FeaturedProjectsShowcaseP
   if (projects.length === 0) return null
 
   return (
-    <div className="mt-8 p-4 bg-black/20 backdrop-blur-sm border border-white/10 rounded-2xl shadow-2xl shadow-primary/20">
+    <div className="mt-8 p-4 bg-card border border-border rounded-2xl">
       <h3 className="text-white text-lg font-semibold mb-2">Featured Projects</h3>
       <div className="relative h-[200px] overflow-hidden">
         {/* Navigation Arrows */}
@@ -52,7 +52,7 @@ export function FeaturedProjectsShowcase({ projects }: FeaturedProjectsShowcaseP
           <>
             <button
               onClick={goToPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-background/50 backdrop-blur-sm border border-border hover:bg-primary/20 transition-all duration-200"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-secondary border border-border hover:bg-primary transition-all duration-200"
               aria-label="Previous project"
             >
               <ChevronLeft className="w-5 h-5 text-white" />
@@ -60,7 +60,7 @@ export function FeaturedProjectsShowcase({ projects }: FeaturedProjectsShowcaseP
             
             <button
               onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-background/50 backdrop-blur-sm border border-border hover:bg-primary/20 transition-all duration-200"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-secondary border border-border hover:bg-primary transition-all duration-200"
               aria-label="Next project"
             >
               <ChevronRight className="w-5 h-5 text-white" />
@@ -99,7 +99,7 @@ export function FeaturedProjectsShowcase({ projects }: FeaturedProjectsShowcaseP
                 }}
               >
                 <Link href="/projects" className="block group">
-                  <div className="bg-gradient-to-br from-gray-900/30 to-black/30 rounded-2xl border border-white/20 p-3 hover:border-rose-500/50 transition-all duration-300 hover:scale-105 w-[280px]">
+                  <div className="bg-card rounded-2xl border border-border p-3 hover:border-primary transition-all duration-300 hover:scale-105 w-[280px]">
                     <div className="relative w-full h-32 rounded-lg overflow-hidden mb-2">
                       <Image
                         src={project.image}
@@ -109,7 +109,7 @@ export function FeaturedProjectsShowcase({ projects }: FeaturedProjectsShowcaseP
                         className="object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
-                    <h4 className="text-white font-semibold text-center group-hover:text-rose-400 transition-colors text-sm">
+                    <h4 className="text-white font-semibold text-center group-hover:text-primary transition-colors text-sm">
                       {project.name}
                     </h4>
                   </div>

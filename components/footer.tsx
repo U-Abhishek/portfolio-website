@@ -39,7 +39,7 @@ export function Footer() {
                   href={social.url}
                   target={social.icon === 'email' ? '_self' : '_blank'}
                   rel={social.icon === 'email' ? '' : 'noopener noreferrer'}
-                  className="p-2 rounded-full bg-card hover:bg-primary/20 hover:border-primary/30 border border-border transition-all duration-300 hover:scale-120"
+                  className="p-2 rounded-full bg-secondary hover:bg-primary hover:border-primary border border-border transition-all duration-300 hover:scale-120"
                   title={social.label}
                 >
                   {getIcon()}
@@ -51,7 +51,7 @@ export function Footer() {
         
         <div className="mt-0 pt-0 text-center">
           <p className="text-muted-foreground">
-            Made by Abhishek • © 2024 All rights reserved.
+            Made by Abhishek • © 2025 All rights reserved.
           </p>
         </div>
         

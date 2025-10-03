@@ -18,7 +18,7 @@ interface ExperienceTimelineProps {
 
 export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black">
+    <section className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <TimelineDemo experiences={experiences} />
       </div>

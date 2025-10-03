@@ -68,10 +68,10 @@ export function Navbar() {
     <nav className="fixed top-4 left-4 right-4 z-50">
         <div
           className={cn(
-            'mx-auto max-w-7xl px-6 py-2 rounded-full border border-white/20 bg-black/30 backdrop-blur-xl shadow-2xl transition-all duration-500 relative',
+            'mx-auto max-w-7xl px-6 py-2 rounded-full border border-white/20 bg-black shadow-2xl transition-all duration-500 relative',
             isScrolled
-              ? 'bg-black/50 border-white/30 shadow-3xl shadow-primary/10'
-              : 'bg-black/30 border-white/20 shadow-2xl shadow-primary/5'
+              ? 'bg-black border-white/30 shadow-3xl shadow-primary/10'
+              : 'bg-black border-white/20 shadow-2xl shadow-primary/5'
           )}
         >
         <div className="flex items-center justify-between w-full gap-8">
@@ -90,8 +90,8 @@ export function Navbar() {
               className={cn(
                 'px-3 py-1.5 rounded-full text-sm transition-all duration-300 relative hover:scale-105',
                 pathname === '/' && !activeAboutSection
-                  ? 'text-white font-bold bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10'
-                  : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
+                  ? 'text-white font-bold bg-primary border border-primary'
+                  : 'text-muted-foreground hover:text-white hover:bg-secondary border border-transparent font-medium'
               )}
             >
               Home
@@ -101,8 +101,8 @@ export function Navbar() {
               className={cn(
                 'px-3 py-1.5 rounded-full text-sm transition-all duration-300 relative hover:scale-105',
                 pathname === '/' && activeAboutSection
-                  ? 'text-white font-bold bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10'
-                  : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
+                  ? 'text-white font-bold bg-primary border border-primary'
+                  : 'text-muted-foreground hover:text-white hover:bg-secondary border border-transparent font-medium'
               )}
             >
               About
@@ -112,8 +112,8 @@ export function Navbar() {
               className={cn(
                 'px-3 py-1.5 rounded-full text-sm transition-all duration-300 relative hover:scale-105',
                 pathname === '/projects'
-                  ? 'text-white font-bold bg-primary/10 border border-primary/20 shadow-lg shadow-primary/10'
-                  : 'text-muted-foreground hover:text-white hover:bg-primary/5 hover:border-primary/10 border border-transparent font-medium'
+                  ? 'text-white font-bold bg-primary border border-primary'
+                  : 'text-muted-foreground hover:text-white hover:bg-secondary border border-transparent font-medium'
               )}
             >
               Projects
