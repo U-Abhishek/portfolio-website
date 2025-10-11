@@ -6,8 +6,8 @@
       "company": "NDD Labs",
       "startDate": "Jul 2024",
       "endDate": "Dec 2024",
-      "description": "Built CV models for ASD emotion detection from body/facial cues; tracked 17 landmarks to classify emotions (e.g., happiness, frustration); created the ROSCO labeled dataset to advance non-verbal analysis.",
-      "youtubeVideo": "egZw1fIRfw8"
+      "description": "Built CV models for ASD emotion detection using 17 facial landmarks. Created ROSCO dataset for non-verbal analysis.",
+      "youtubeVideo": "noKAb6au9wQ"
     },
     {
       "id": 2,
@@ -15,7 +15,7 @@
       "company": "Omdena",
       "startDate": "Mar 2022",
       "endDate": "Jun 2022",
-      "description": "Built mosquito body-part segmentation pipeline (IoU 0.93); led modeling to boost species classification +8.3% via graph-cut; automated labeling and benchmarked TF/PyTorch models.",
+      "description": "Built deep learning pipeline for mosquito segmentation (0.93 IOU) deployed on edge devices across 4 continents. Led modeling team, reduced classification risk by 30%.",
       "youtubeVideo": "egZw1fIRfw8"
     },
     {
@@ -24,8 +24,8 @@
       "company": "IIT Indore",
       "startDate": "Jan 2022",
       "endDate": "Apr 2022",
-      "description": "Developed infra-thermal perception pipeline; fused acoustic sensors with Deep SORT + Kalman to reach 93.4% UAV tracking; optimized multi-sensor processing on Jetson Nano.",
-      "youtubeVideo": "tbLOPNx2pok"
+      "description": "Integrated advanced tracking systems with acoustic sensors, achieving 93.4% UAV tracking on edge devices with limited computational resources.",
+      "youtubeVideo": "Y7klSHkhYT8"
     },
     {
       "id": 4,
@@ -33,7 +33,7 @@
       "company": "Omdena",
       "startDate": "Aug 2021",
       "endDate": "Oct 2021",
-      "description": "Built AI/IoT health dashboard; applied sequential models to predict behavior (AP 0.89); engineered real-time REST pipeline to normalize sensor data.",
+      "description": "Built sequential models (GRUs/LSTMs) for human behavior prediction (0.89 mAP). Created distributed ML pipeline with PySpark for ~ 2TB datasets.",
       "youtubeVideo": "2f1DnZbyV-M"
     }
   ]

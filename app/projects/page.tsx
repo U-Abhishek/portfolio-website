@@ -7,7 +7,10 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import projectsData from '@/data/projects.json'
 
-type Category = 'all' | 'Computer Vision' | 'Robotics' | 'Machine Learning'
+type Category = 'all' | 'AI Systems' | 'Machine Learning / Vision' | 'Robotics'
+
+// Define categories statically to prevent hydration issues
+const ALL_CATEGORIES: Category[] = ['all', 'AI Systems', 'Machine Learning / Vision', 'Robotics']
 
 export default function ProjectsPage() {
   const { projects } = projectsData
@@ -15,10 +18,8 @@ export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<typeof projectsData.projects[0] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  // Get unique categories from project tags - memoized to prevent hydration issues
-  const categories = useMemo(() => {
-    return ['all', ...Array.from(new Set(projects.flatMap(p => p.tags || [])))] as Category[]
-  }, [projects])
+  // Use static categories to ensure consistent server/client rendering
+  const categories = ALL_CATEGORIES
 
   // Filter projects based on selected category and sort by date (most recent first)
   const filteredProjects = useMemo(() => {

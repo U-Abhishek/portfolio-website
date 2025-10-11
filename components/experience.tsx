@@ -49,20 +49,20 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                     <CardBody 
                       className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer"
                     >
-                      <CardItem translateZ="50" className="text-lg font-bold mb-1 text-left">
+                      <CardItem translateZ="50" className="text-xl font-bold mb-1 text-left">
                         <span>{edu.degree}</span>{' '}
                         <span className="font-medium text-muted-foreground">@ {edu.institution}</span>
                       </CardItem>
-                      <CardItem translateZ="20" as="div" className="text-sm text-left">
+                      <CardItem translateZ="20" as="div" className="text-base text-left">
                         {edu.location}
                       </CardItem>
-                      <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-sm text-left mt-1">
+                      <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-base text-left mt-1">
                         <Calendar className="w-4 h-4" />
                         {edu.startDate} - {edu.endDate}
                         {edu.gpa ? <span className="ml-2 text-muted-foreground">GPA: {edu.gpa}</span> : null}
                       </CardItem>
                       {edu.details && edu.details.length > 0 && (
-                        <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-left">
+                        <ul className="mt-3 list-disc pl-5 space-y-1 text-base text-left">
                           {edu.details.map((d, i) => (
                             <li key={i}>{d}</li>
                           ))}
@@ -94,12 +94,12 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                       <CardBody 
                         className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer"
                       >
-                        <CardItem translateZ="50" className="text-lg font-bold mb-1 text-left">
+                        <CardItem translateZ="50" className="text-xl font-bold mb-1 text-left">
                           <span>@ {exp.company}</span>{' '}
                           <span className="font-medium text-muted-foreground">{exp.role}</span>
                         </CardItem>
 
-                        <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-sm text-left">
+                        <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-base text-left">
                           <Calendar className="w-4 h-4" />
                           {exp.startDate} - {exp.endDate}
                         </CardItem>
@@ -117,7 +117,7 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                           </div>
                         )}
 
-                        <CardItem translateZ="40" as="p" className="text-sm leading-relaxed mt-4 text-left overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-96 group-hover/card:opacity-100">
+                        <CardItem translateZ="40" as="p" className="text-base leading-relaxed mt-4 text-left overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-96 group-hover/card:opacity-100">
                           {exp.description}
                         </CardItem>
                       </CardBody>
@@ -141,20 +141,20 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                     <CardBody 
                       className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer"
                     >
-                      <CardItem translateZ="50" className="text-lg font-bold mb-1 text-left">
+                      <CardItem translateZ="50" className="text-xl font-bold mb-1 text-left">
                         <span>{edu.degree}</span>{' '}
                         <span className="font-medium text-muted-foreground">@ {edu.institution}</span>
                       </CardItem>
-                      <CardItem translateZ="20" as="div" className="text-sm text-left">
+                      <CardItem translateZ="20" as="div" className="text-base text-left">
                         {edu.location}
                       </CardItem>
-                      <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-sm text-left mt-1">
+                      <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-base text-left mt-1">
                         <Calendar className="w-4 h-4" />
                         {edu.startDate} - {edu.endDate}
                         {edu.gpa ? <span className="ml-2 text-muted-foreground">GPA: {edu.gpa}</span> : null}
                       </CardItem>
                       {edu.details && edu.details.length > 0 && (
-                        <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-left">
+                        <ul className="mt-3 list-disc pl-5 space-y-1 text-base text-left">
                           {edu.details.map((d, i) => (
                             <li key={i}>{d}</li>
                           ))}
@@ -177,12 +177,12 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                     <CardBody 
                       className="relative group/card hover:shadow-2xl w-full h-auto rounded-xl p-6 border cursor-pointer"
                     >
-                      <CardItem translateZ="50" className="text-lg font-bold mb-1 text-left">
+                      <CardItem translateZ="50" className="text-xl font-bold mb-1 text-left">
                         <span>@ {exp.company}</span>{' '}
                         <span className="font-medium text-muted-foreground">{exp.role}</span>
                       </CardItem>
 
-                      <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-sm text-left">
+                      <CardItem translateZ="20" as="div" className="flex items-center gap-2 text-base text-left">
                         <Calendar className="w-4 h-4" />
                         {exp.startDate} - {exp.endDate}
                       </CardItem>
@@ -200,7 +200,7 @@ export function Experience({ experiences, education = [] }: ExperienceProps) {
                         </div>
                       )}
 
-                      <CardItem translateZ="40" as="p" className="text-sm leading-relaxed mt-4 text-left overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-96 group-hover/card:opacity-100">
+                      <CardItem translateZ="40" as="p" className="text-base leading-relaxed mt-4 text-left overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 group-hover/card:max-h-96 group-hover/card:opacity-100">
                         {exp.description}
                       </CardItem>
                     </CardBody>

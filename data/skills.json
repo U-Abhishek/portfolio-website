@@ -40,6 +40,11 @@
         "name": "Ollama",
         "filename": "ollama.svg",
         "folder": "languages-and-tools"
+      },
+      {
+        "name": "Apache Spark",
+        "filename": "apache_spark.svg",
+        "folder": "languages-and-tools"
       }
     ],
     "fullstack-and-cloud": [

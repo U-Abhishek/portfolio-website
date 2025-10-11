@@ -10,8 +10,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-left">
-            <h3 className="text-xl font-bold mb-2">Abhishek Uddaraju</h3>
-            <p className="text-muted-foreground">
+            <h3 className="text-2xl font-bold mb-2">Abhishek Uddaraju</h3>
+            <p className="text-lg text-muted-foreground">
               AI Engineer
             </p>
           </div>
@@ -50,7 +50,7 @@ export function Footer() {
         </div>
         
         <div className="mt-0 pt-0 text-center">
-          <p className="text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Made by Abhishek • © 2025 All rights reserved.
           </p>
         </div>

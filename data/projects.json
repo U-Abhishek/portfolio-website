@@ -4,7 +4,7 @@
 
     {
       "name": "StyleVec API",
-      "description": "A fashion search API that generates context-rich vector embeddings and segmentations for precise clothing recommendation and discovery.",
+      "description": "A powerful API for clothing search and retrieval using vector embeddings and computer vision. Enables users to search for clothing items using images, create embeddings, and perform segmentation for detailed clothing detection. Features include vector similarity search, clothing segmentation with masks and bounding boxes, and MCP server integration for AI assistants.",
       "date": "2025-05",
       "ieee": "",
       "live": "",
@@ -13,22 +13,22 @@
       "image": "/images/projects/stylevec_api.png",
       "youtube": "",
       "tags": ["AI Systems"],
-      "summary": "A fashion search API that generates context-rich vector embeddings and segmentations for precise clothing recommendation and discovery.",
+      "summary": "Clothing search API with vector embeddings, similarity search, segmentation, and MCP integration for AI assistants.",
       "featured": true
     },
 
     {
       "name": "SavorSync",
-      "description": "A culturally immersive cooking platform blending authentic recipes with rich storytelling and AI-powered ingredient swaps.",
+      "description": "A culturally immersive cooking platform built with Langchain, OpenAI, DSPy, MongoDB, Express, and Node.js. Developed sequential AI workflows in Langchain to generate cultural recipes and stories with consistency. Implemented evaluation-driven prompt optimization for RAG system using DSPy and Promptim. Conducted structured testing sessions with 44 users to drive targeted UI/UX improvements.",
       "date": "2025-03",
       "ieee": "",
-      "live": "",
-      "github": "",
+      "live": "https://savorsync-myproject.netlify.app/",
+      "github": "https://github.com/U-Abhishek/SavorSync-API",
       "report": "",
       "image": "/images/projects/savorsync.png",
       "youtube": "",
       "tags": ["AI Systems"],
-      "summary": "A culturally immersive cooking platform blending authentic recipes with rich storytelling and AI-powered ingredient swaps.",
+      "summary": "Cultural cooking platform with Langchain AI workflows, DSPy optimization, and user-driven UI/UX improvements.",
       "featured": true
     },
     

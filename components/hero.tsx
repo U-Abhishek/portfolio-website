@@ -37,10 +37,10 @@ export function Hero() {
                   <div className="space-y-2 sm:space-y-3">
                     {/* First div: Name and flip */}
                     <div className="space-y-3 sm:space-y-4">
-                      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
                         Abhishek Uddaraju
                       </h1>
-                      <div className="text-xl sm:text-3xl lg:text-4xl text-muted-foreground font-medium">
+                      <div className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-medium">
                         <ContainerTextFlip
                           words={["AI Systems Architect", "ML Engineer", "Developer"]}
                           interval={3000}
@@ -54,7 +54,7 @@ export function Hero() {
                     <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
                       {/* Left side - Text content */}
                       <div className="flex-1 text-center lg:text-right">
-                        <p className="text-base sm:text-xl text-muted-foreground leading-relaxed">
+                        <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                           I specialize in AI system design and deployment, building scalable intelligent systems and end-to-end machine learning workflows.
                         </p>
                       </div>

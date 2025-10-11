@@ -31,7 +31,7 @@ export function Skills({ skills: _skills }: SkillsProps) {
             title={skill.name}
           />
         </div>
-        <h3 className="text-sm sm:text-base font-medium text-white group-hover:text-primary transition-colors">
+        <h3 className="text-base sm:text-lg font-medium text-white group-hover:text-primary transition-colors">
           {skill.name}
         </h3>
       </div>
@@ -45,7 +45,7 @@ export function Skills({ skills: _skills }: SkillsProps) {
     <div className="space-y-6">
       <div className="text-center">
         <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm sm:text-base">{description}</p>
+        <p className="text-muted-foreground text-base sm:text-lg">{description}</p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {skills.map((skill, index) => (

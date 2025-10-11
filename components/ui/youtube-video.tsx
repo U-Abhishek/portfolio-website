@@ -47,7 +47,9 @@ export function YouTubeVideo({
       fs: '0',
       cc_load_policy: '0',
       start: '0',
-      end: '0'
+      end: '0',
+      playsinline: '1',
+      enablejsapi: '0'
     })
     
     return `https://www.youtube.com/embed/${videoId}?${params.toString()}`
@@ -62,16 +64,18 @@ export function YouTubeVideo({
       )}
       {/* 16:9 Aspect Ratio Container */}
       <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+        {/* Non-interactive iframe - prevents clicks and redirects to YouTube */}
         <iframe
           ref={iframeRef}
           src={buildEmbedUrl()}
           title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={`absolute top-0 left-0 w-full h-full rounded-lg transition-opacity duration-300 ${
+          allow="accelerometer; autoplay; encrypted-media"
+          allowFullScreen={false}
+          className={`absolute top-0 left-0 w-full h-full rounded-lg transition-opacity duration-300 pointer-events-none ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           loading="lazy"
+          style={{ pointerEvents: 'none' }}
         />
       </div>
     </div>

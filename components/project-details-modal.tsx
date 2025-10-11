@@ -78,8 +78,14 @@ export function ProjectDetailsModal({ project, isOpen, onClose }: ProjectDetails
   const youtubeId = project.youtube ? extractYouTubeId(project.youtube) : null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm">
-      <div className="bg-background border border-border rounded-xl max-w-7xl w-full max-h-[95vh] overflow-hidden shadow-2xl shadow-primary/10">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-background/95 border border-border rounded-xl max-w-7xl w-full max-h-[95vh] overflow-hidden shadow-2xl shadow-primary/10"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header with close button */}
         <div className="relative px-8 pt-12 pb-0">
           <div className="flex flex-col">

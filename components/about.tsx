@@ -188,7 +188,7 @@ export function About({ experiences, education }: AboutProps) {
               <div className="space-y-8">
                 {/* Languages & Tools */}
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-white">Languages & Tools</h4>
+                  <h4 className="text-xl font-semibold text-white">Languages & Tools</h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     {skills['languages-and-tools'].map((skill, index) => (
                       <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-secondary transition-all duration-300 hover:bg-secondary/5 hover:scale-105">
@@ -208,7 +208,7 @@ export function About({ experiences, education }: AboutProps) {
 
                 {/* Fullstack & Cloud */}
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-white">Fullstack & Cloud</h4>
+                  <h4 className="text-xl font-semibold text-white">Fullstack & Cloud</h4>
                   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
                     {skills['fullstack-and-cloud'].map((skill, index) => (
                       <div key={`${skill.name}-${index}`} className="group flex flex-col items-center p-3 rounded-lg bg-card/30 border border-border/50 hover:border-secondary transition-all duration-300 hover:bg-secondary/5 hover:scale-105">
@@ -330,8 +330,8 @@ export function About({ experiences, education }: AboutProps) {
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
                   {/* Left side - Get in Touch */}
                   <div className="space-y-4 md:flex-1 pl-12">
-                    <h4 className="text-lg font-semibold">Lets Connect</h4>
-                    <p className="text-gray-300">
+                    <h4 className="text-xl font-semibold">Lets Connect</h4>
+                    <p className="text-lg text-gray-300">
                       I&apos;m always interested in new opportunities and collaborations. 
                       Feel free to reach out if you&apos;d like to work together or just have a chat!
                     </p>
